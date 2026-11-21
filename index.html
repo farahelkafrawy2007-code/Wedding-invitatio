@@ -1,0 +1,561 @@
+
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZEIAD & SARA Wedding Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --wine:#42191e;
+  --wine-deep:#321115;
+  --rose:#7b4a50;
+  --cream:#f7f1e9;
+  --paper:#fbf8f2;
+  --gold:#b69a72;
+  --ink:#43262a
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:"Amiri",serif
+}
+button,input,select{font-family:"Amiri",serif}
+button{cursor:pointer}
+:focus-visible{outline:3px solid #c7a277;outline-offset:3px}
+
+.cover{
+  min-height:100svh;
+  background:radial-gradient(circle at 50% 35%,#60282d 0%,var(--wine) 52%,var(--wine-deep) 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:52px 20px;
+  position:relative;
+  overflow:hidden
+}
+.petal{
+  position:absolute;
+  width:7px;
+  height:7px;
+  background:#bd8d89;
+  border-radius:60% 10% 60% 10%;
+  opacity:.6;
+  transform:rotate(35deg)
+}
+.p1{top:12%;left:24%}
+.p2{top:24%;right:17%}
+.p3{bottom:16%;left:19%}
+.p4{bottom:25%;right:22%}
+.p5{top:65%;left:8%}
+
+.cover-card{
+  position:relative;
+  width:min(100%,510px);
+  min-height:390px;
+  background:var(--paper);
+  border-radius:5px;
+  box-shadow:0 22px 50px #1b080a80;
+  text-align:center;
+  padding:42px 64px 40px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden
+}
+.cover-card:after,.detail-card:after{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border:1px solid rgba(143,109,89,.2);
+  pointer-events:none
+}
+.floral{
+  position:absolute;
+  width:150px;
+  height:195px;
+  pointer-events:none
+}
+.cover-card .floral.left{left:-20px;top:25px}
+.cover-card .floral.right{right:-20px;top:25px;transform:scaleX(-1)}
+
+.seal{
+  width:47px;
+  height:47px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--wine);
+  color:#fff4ef;
+  font-size:23px;
+  box-shadow:0 4px 10px #32111555;
+  margin-bottom:16px;
+  line-height:1
+}
+.eyebrow{
+  font-size:13px;
+  letter-spacing:3px;
+  color:var(--rose);
+  margin:0 0 5px
+}
+h1{
+  font-weight:400;
+  font-size:clamp(42px,7vw,59px);
+  line-height:1.17;
+  margin:0;
+  color:var(--wine)
+}
+h1 span{
+  display:block;
+  font-size:29px;
+  line-height:1.1
+}
+.rule{
+  width:90px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:var(--gold);
+  margin:14px auto
+}
+.rule:before,.rule:after{
+  content:"";
+  height:1px;
+  background:#cbb8a4;
+  flex:1
+}
+.rule span{font-size:12px}
+.cover-date{font-size:18px;margin:0 0 4px;color:#77575a}
+.cover-invite{font-size:18px;margin:0 0 18px;color:#77575a}
+.primary{
+  border:0;
+  border-radius:100px;
+  background:var(--wine);
+  color:#fff8f2;
+  padding:9px 32px;
+  font-size:17px;
+  line-height:1.35;
+  box-shadow:0 5px 11px #32111538;
+  transition:transform .2s,background .2s
+}
+.primary:hover{transform:translateY(-2px);background:#672a32}
+
+.site{
+  background:var(--cream);
+  background-image:radial-gradient(#ab907333 .5px,transparent .5px);
+  background-size:12px 12px
+}
+.content{
+  width:min(100% - 36px,620px);
+  margin:auto;
+  padding:38px 0 70px;
+  text-align:center
+}
+.small-label{
+  font-family:"DM Sans",sans-serif;
+  font-size:10px;
+  letter-spacing:3px;
+  color:var(--rose);
+  text-transform:uppercase
+}
+.intro{padding:52px 12px 36px}
+.intro h2{
+  font-weight:400;
+  font-size:clamp(48px,10vw,72px);
+  line-height:1.18;
+  color:var(--wine);
+  margin:18px 0 15px
+}
+.intro h2 span{display:block;font-size:35px;color:var(--gold)}
+.intro p{font-size:20px;line-height:1.8;margin:0;color:#70585a}
+.ornament{color:var(--gold);font-size:25px;margin:17px 0}
+
+.detail-card{
+  position:relative;
+  background:var(--wine);
+  color:#faf2e8;
+  border-radius:3px;
+  padding:58px 35px;
+  margin:30px auto;
+  box-shadow:0 12px 30px #461e2226
+}
+.detail-card:after{border-color:#d4bba358}
+.detail-card h2{
+  font-weight:400;
+  font-size:38px;
+  line-height:1.3;
+  margin:12px 0
+}
+.detail-card p{font-size:19px;line-height:1.8;margin:7px 0;color:#eadad1}
+.detail-card .small-label{color:#d8baa3}
+.detail-card .ornament{color:#d2ab87}
+.date-number{font-size:76px;line-height:1;margin:12px 0 0;color:#fff8f2}
+.date-month{font-size:25px;color:#efddd1}
+.date-year{
+  font-family:"DM Sans",sans-serif;
+  font-size:16px;
+  letter-spacing:5px;
+  margin:10px 0 18px;
+  color:#d7bda9
+}
+
+.location-card{
+  background:#eee5db;
+  border:1px solid #d8c9b9;
+  padding:42px 24px;
+  margin:30px auto;
+  position:relative
+}
+.location-card h2,.rsvp-card h2{
+  font-weight:400;
+  font-size:37px;
+  color:var(--wine);
+  margin:10px 0
+}
+.location-card p{font-size:20px;line-height:1.8;margin:0;color:#6b5052}
+.location-icon{font-size:32px;color:var(--wine);line-height:1}
+
+.rsvp-card{
+  background:var(--paper);
+  border:1px solid #e5d7c8;
+  box-shadow:0 10px 28px #4a252017;
+  padding:40px clamp(22px,6vw,62px);
+  margin:32px auto;
+  text-align:center
+}
+.rsvp-card>p{font-size:18px;color:#765c5c;margin:0 0 20px}
+form{text-align:right}
+.field{margin-bottom:17px}
+label{display:block;font-size:17px;margin-bottom:5px;color:var(--wine)}
+input,select{
+  width:100%;
+  background:#fffdf9;
+  border:1px solid #cdbbb3;
+  border-radius:3px;
+  padding:10px 13px;
+  font-size:17px;
+  color:var(--ink)
+}
+input::placeholder{color:#a99999}
+.submit-wrap{text-align:center;margin-top:22px}
+.status{
+  min-height:28px;
+  font-size:17px;
+  margin:15px 0 0;
+  text-align:center;
+  color:var(--wine)
+}
+.status.error{color:#9d3232}
+footer{text-align:center;padding:12px 20px 35px;color:#8b6d6e;font-size:17px}
+
+/* Music button */
+#musicBtn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:9999;
+  font-size:15px;
+  padding:10px 22px
+}
+
+@media(max-width:520px){
+  .cover-card{padding:44px 46px;min-height:350px}
+  .cover-card .floral{width:102px;height:150px}
+  .cover-card .floral.left{left:-23px}
+  .cover-card .floral.right{right:-23px}
+  .detail-card{padding:50px 24px}
+}
+</style>
+
+<script src="/_sdk/ea2423e0a01a756f.data_sdk.js" type="text/javascript"></script>
+<script src="/_sdk/a03dce2118604c50.editing_sdk.js" type="text/javascript"></script>
+<script src="/_sdk/a202d01287f70bbd.resizing_sdk.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<!-- Local Music File -->
+<audio id="weddingMusic" preload="auto" loop>
+  <source src="./song.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" class="primary" type="button">🎵 Play Music</button>
+
+<!-- Flower Drawing -->
+<svg aria-hidden="true" width="0" height="0" style="position:absolute">
+<defs>
+<symbol id="bouquet" viewBox="0 0 150 195">
+<g fill="none" stroke="#8c775c" stroke-width="1.3" opacity=".8">
+<path d="M7 185C37 155 28 82 82 22M15 170C25 128 66 106 102 82M20 142C47 116 24 75 47 48M30 117C56 98 75 55 116 40"/>
+<path d="M38 132q-18-13-22-28 20 3 22 28M49 109q14-22 29-21-5 18-29 21M55 71q-3-22 11-33 8 17-11 33M84 47q-5-17 7-29 8 14-7 29M73 98q16-15 34-12-8 17-34 12" fill="#a4a084" stroke="none"/>
+</g>
+<g fill="#6b303a">
+<circle cx="28" cy="97" r="15"/>
+<circle cx="55" cy="139" r="18"/>
+<circle cx="13" cy="155" r="13"/>
+</g>
+<g fill="#93545d" opacity=".85">
+<circle cx="20" cy="91" r="9"/>
+<circle cx="38" cy="93" r="9"/>
+<circle cx="48" cy="132" r="10"/>
+<circle cx="64" cy="133" r="9"/>
+<circle cx="8" cy="151" r="8"/>
+</g>
+<g fill="#d3b49b">
+<circle cx="28" cy="97" r="6"/>
+<circle cx="55" cy="139" r="7"/>
+<circle cx="13" cy="155" r="5"/>
+</g>
+<g fill="#a98578">
+<circle cx="93" cy="29" r="2"/>
+<circle cx="105" cy="43" r="2.5"/>
+<circle cx="115" cy="37" r="2"/>
+<circle cx="94" cy="82" r="2.5"/>
+<circle cx="42" cy="48" r="2"/>
+</g>
+</symbol>
+</defs>
+</svg>
+
+<header id="cover" class="cover canva-header">
+<span class="petal p1"></span>
+<span class="petal p2"></span>
+<span class="petal p3"></span>
+<span class="petal p4"></span>
+<span class="petal p5"></span>
+
+<div class="cover-card canva-card">
+<svg class="floral left" aria-hidden="true"><use href="#bouquet"></use></svg>
+<svg class="floral right" aria-hidden="true"><use href="#bouquet"></use></svg>
+
+<div class="seal" aria-hidden="true">♥</div>
+<p class="eyebrow canva-text">WEDDING INVITATION</p>
+<h1 id="cover-title">ZEIAD <span>&amp;</span> SARA</h1>
+<div class="rule" aria-hidden="true"><span>♥</span></div>
+<p class="cover-date canva-text">November 27, 2026</p>
+<p class="cover-invite canva-text">Cordially Invites</p>
+<button id="open-button" class="primary canva-button" type="button">Open</button>
+</div>
+</header>
+
+<main id="invitation" class="site">
+<div class="content">
+
+<section class="intro canva-section" aria-labelledby="intro-title">
+<span class="small-label canva-text">THE WEDDING INVITATION</span>
+<div class="ornament" aria-hidden="true">✦</div>
+<h2 id="intro-title">ZEIAD <span>&amp;</span> SARA</h2>
+<p>With love and joy, we invite you to be part of our special day.
+<br>
+Your presence will complete our happiness and make our memories even more beautiful.</p>
+</section>
+
+<section class="detail-card canva-card" aria-labelledby="celebration-title">
+<span class="small-label canva-text">WE INVITE YOU TO SHARE OUR JOY</span>
+<div class="ornament" aria-hidden="true">❦</div>
+<h2 id="celebration-title">Let's Celebrate Love Together</h2>
+<p>On a night that brings our hearts together with loved ones</p>
+<p>We are honored to share the joy of the wedding of</p>
+<h2>ZEIAD &amp; SARA</h2>
+</section>
+
+<section class="detail-card canva-card" aria-labelledby="date-title">
+<span class="small-label canva-text">SAVE THE DATE</span>
+<h2 id="date-title">A Date to Celebrate</h2>
+<div class="date-number">27</div>
+<div class="date-month">November</div>
+<div class="date-year">2026</div>
+<p>Friday</p>
+</section>
+
+<section class="location-card canva-card" aria-labelledby="location-title">
+<div class="location-icon" aria-hidden="true">⌖</div>
+<span class="small-label canva-text">THE LOCATION</span>
+<h2 id="location-title">The Venue</h2>
+<p>
+<a id="venue-map-link" class="canva-link"
+href="https://www.google.com/maps/search/?api=1&amp;query=BOLIVARD%20OPEN%20AIR%20HALL"
+target="_blank" rel="noopener noreferrer"
+aria-label="Find BOLIVARD OPEN AIR HALL on Google Maps"
+style="color:inherit;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:5px">
+BOLIVARD OPEN AIR HALL
+</a>
+</p>
+</section>
+
+<section class="rsvp-card canva-card" aria-labelledby="rsvp-title">
+<span class="small-label canva-text">CELEBRATE WITH US</span>
+<h2 id="rsvp-title">RSVP</h2>
+<p>Please let us know if you will join us for this celebration.</p>
+
+<form id="rsvp-form">
+<div class="field">
+<label for="guest-name">Full Name</label>
+<input id="guest-name" class="canva-input" name="guest_name" type="text" placeholder="Enter your name here" maxlength="100" required>
+</div>
+
+<div class="field">
+<label for="attendance">Will you attend?</label>
+<select id="attendance" class="canva-dropdown" name="attendance" required>
+<option value="">Select your answer</option>
+<option value="Yes, I will attend">Yes, I will attend</option>
+<option value="Sorry, I cannot attend">Sorry, I cannot attend</option>
+</select>
+</div>
+
+<div class="field" id="count-field">
+<label for="guest-count">Number of guests (including you)</label>
+<select id="guest-count" class="canva-dropdown" name="guest_count">
+<option value="1">1 guest</option>
+<option value="2">2 guests</option>
+<option value="3">3 guests</option>
+<option value="4">4 guests</option>
+<option value="5">5 guests</option>
+</select>
+</div>
+
+<div class="submit-wrap">
+<button id="submit-button" class="primary canva-button" type="submit">Send RSVP</button>
+</div>
+<p id="form-status" class="status canva-text" role="status" aria-live="polite"></p>
+</form>
+</section>
+
+</div>
+</main>
+
+<footer class="canva-footer">
+With love, ZEIAD &amp; SARA <span aria-hidden="true">♥</span>
+</footer>
+
+<script>
+const openButton = document.getElementById('open-button');
+const weddingMusic = document.getElementById('weddingMusic');
+const musicBtn = document.getElementById('musicBtn');
+const invitation = document.getElementById('invitation');
+
+let musicStarted = false;
+
+// Play music when Open is clicked
+openButton.addEventListener('click', async () => {
+  invitation.scrollIntoView({behavior:'smooth'});
+
+  try {
+    await weddingMusic.play();
+    musicStarted = true;
+    musicBtn.textContent = '⏸ Pause Music';
+  } catch (error) {
+    musicStarted = false;
+    musicBtn.textContent = '🎵 Play Music';
+  }
+});
+
+// Play / Pause music button
+musicBtn.addEventListener('click', async () => {
+  if (weddingMusic.paused) {
+    try {
+      await weddingMusic.play();
+      musicStarted = true;
+      musicBtn.textContent = '⏸ Pause Music';
+    } catch (error) {
+      musicBtn.textContent = '🎵 Play Music';
+    }
+  } else {
+    weddingMusic.pause();
+    musicStarted = false;
+    musicBtn.textContent = '🎵 Play Music';
+  }
+});
+
+// Update button if music pauses or ends
+weddingMusic.addEventListener('pause', () => {
+  musicBtn.textContent = '🎵 Play Music';
+});
+
+weddingMusic.addEventListener('play', () => {
+  musicBtn.textContent = '⏸ Pause Music';
+});
+
+// RSVP
+const form = document.getElementById('rsvp-form');
+const attendance = document.getElementById('attendance');
+const countField = document.getElementById('count-field');
+const count = document.getElementById('guest-count');
+const submit = document.getElementById('submit-button');
+const status = document.getElementById('form-status');
+
+let ready = false;
+
+function syncCount(){
+  const absent = attendance.value === 'Sorry, I cannot attend';
+  countField.hidden = absent;
+  count.disabled = absent;
+}
+attendance.addEventListener('change', syncCount);
+
+(async()=>{
+  try{
+    const result = await window.dataSdk.init({onDataChanged(){}});
+    ready = result.isOk;
+    if(!ready){
+      status.textContent = 'RSVP is unavailable. Please try again later.';
+      status.className = 'status error canva-text';
+    }
+  }catch(e){
+    status.textContent = 'RSVP is unavailable. Please try again later.';
+    status.className = 'status error canva-text';
+  }
+})();
+
+form.addEventListener('submit', async event=>{
+  event.preventDefault();
+  if(!form.reportValidity())return;
+
+  if(!ready){
+    status.textContent = 'RSVP is unavailable right now. Please try again later.';
+    status.className = 'status error canva-text';
+    return;
+  }
+
+  submit.disabled = true;
+  submit.textContent = 'Sending...';
+  status.textContent = '';
+  status.className = 'status canva-text';
+
+  try{
+    const result = await window.dataSdk.create({
+      guest_name: document.getElementById('guest-name').value.trim(),
+      attendance: attendance.value,
+      guest_count: attendance.value === 'Yes, I will attend' ? Number(count.value) : 0,
+      submitted_at: new Date().toISOString()
+    });
+
+    if(result.isOk){
+      status.textContent = 'Thank you! Your RSVP has been saved.';
+      form.reset();
+      syncCount();
+    }else{
+      status.textContent = 'Your RSVP could not be saved. Please try again.';
+      status.className = 'status error canva-text';
+    }
+  }catch(e){
+    status.textContent = 'Your RSVP could not be saved. Please try again.';
+    status.className = 'status error canva-text';
+  }finally{
+    submit.disabled = false;
+    submit.textContent = 'Send RSVP';
+  }
+});
+</script>
+
+</body>
+</html>
